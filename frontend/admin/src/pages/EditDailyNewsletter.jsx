@@ -4,12 +4,13 @@ import { Input, Button } from '@chakra-ui/react'; // Or other form components
 import { useAuth } from '../hooks/AuthProvider';
 
 const EditEHR = () => {
+    const apiUrl = import.meta.env.VITE_API_URL
     const auth = useAuth();
     const { id } = useParams(); // Get the ID parameter from the URL
     const [data, setData] = useState({ title: '', content: '' });
 
     const handleSave = async () => {
-        const response = await fetch(`http://localhost:3000/daily-newsletter/edit/${id}`, {
+        const response = await fetch(apiUrl + `/daily-newsletter/edit/${id}`, {
             method: 'PUT', // Or appropriate HTTP method
             headers: {
                 'Content-Type': 'application/json',

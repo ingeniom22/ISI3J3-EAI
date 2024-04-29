@@ -9,7 +9,7 @@ const EditEHR = () => {
     const [data, setData] = useState({ title: '', content: '' });
 
     const handleSave = async () => {
-        const response = await fetch(`http://localhost:3000/ehr/edit/${id}`, {
+        const response = await fetch(`/ehr/edit/${id}`, {
             method: 'PUT', // Or appropriate HTTP method
             headers: {
                 'Content-Type': 'application/json',

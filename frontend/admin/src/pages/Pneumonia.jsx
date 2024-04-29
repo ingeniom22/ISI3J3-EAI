@@ -2,10 +2,10 @@ import React, { } from 'react';
 import PneumoniaPredictionForm from '../components/PneumoniaPredictionForm';
 
 const Pneumonia = () => {
-
+    const apiUrl = import.meta.env.VITE_API_URL;
 
     return (
-        <PneumoniaPredictionForm inferenceAPI={"http://localhost:8000/pneumonia/predict"} reportAPI={"http://localhost:3000/pneuomania-report/create"} />
+        <PneumoniaPredictionForm inferenceAPI={apiUrl + "/pneumonia/predict"} reportAPI={apiUrl + "/pneuomania-report/create"} />
     );
 };
 

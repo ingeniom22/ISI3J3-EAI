@@ -3,13 +3,14 @@ import { Table, Thead, Tbody, Tr, Th, Td } from '@chakra-ui/react';
 import { useAuth } from '../hooks/AuthProvider';
 
 const Feedback = () => {
+    const apiUrl = import.meta.env.VITE_API_URL
     const auth = useAuth();
     const [data, setData] = useState([]);
 
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await fetch('http://localhost:3000/feedback/get-all', {
+                const response = await fetch(apiUrl + '/feedback/get-all', {
                     headers: {
                         Authorization: `Bearer ${auth.token}`
                     }

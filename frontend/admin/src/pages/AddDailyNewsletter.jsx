@@ -3,6 +3,8 @@ import { Checkbox, Box, Input, Button, FormControl, FormLabel } from '@chakra-ui
 import { useAuth } from '../hooks/AuthProvider';
 
 const AddEHR = () => {
+    const apiUrl = import.meta.env.VITE_API_URL
+
     const [formData, setFormData] = useState({ title: '', content: '', published: '' });
     const auth = useAuth();
 
@@ -17,7 +19,7 @@ const AddEHR = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await fetch('http://localhost:3000/daily-newsletter/create', {
+            const response = await fetch(apiUrl + '/daily-newsletter/create', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

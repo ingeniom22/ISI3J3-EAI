@@ -17,7 +17,7 @@ const AddEHR = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await fetch('http://localhost:3000/reminder/create', {
+            const response = await fetch(apiUrl + '/reminder/create', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

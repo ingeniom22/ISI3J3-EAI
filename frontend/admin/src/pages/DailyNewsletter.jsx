@@ -6,6 +6,8 @@ import { useNavigate } from "react-router-dom";
 
 
 const DailyNewsletter = () => {
+    const apiUrl = import.meta.env.VITE_API_URL
+    
     const toast = useToast()
     const navigate = useNavigate();
     const auth = useAuth();
@@ -14,7 +16,7 @@ const DailyNewsletter = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await fetch('http://localhost:3000/daily-newsletter/get-all', {
+                const response = await fetch(apiUrl + '/daily-newsletter/get-all', {
                     headers: {
                         Authorization: `Bearer ${auth.token}`
                     }
@@ -46,7 +48,7 @@ const DailyNewsletter = () => {
     const onDelete = async (id) => {
         if (confirm('Are you sure you want to delete this record?')) {
             try {
-                const response = await fetch(`http://localhost:3000/daily-newsletter/delete/${id}`, {
+                const response = await fetch(`/daily-newsletter/delete/${id}`, {
                     method: 'DELETE',
                     headers: {
                         Authorization: `Bearer ${auth.token}`,

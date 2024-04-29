@@ -3,13 +3,14 @@ import { Table, Thead, Tbody, Tr, Th, Td } from '@chakra-ui/react';
 import { useAuth } from '../hooks/AuthProvider';
 
 const EHR = () => {
+    const apiUrl = import.meta.env.VITE_API_URL
     const auth = useAuth();
     const [data, setData] = useState([]);
 
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await fetch('http://localhost:3000/ehr/get-all', {
+                const response = await fetch(apiUrl + '/ehr/get-all', {
                     headers: {
                         Authorization: `Bearer ${auth.token}`
                     }
