@@ -5,6 +5,7 @@ import { useAuth } from '../hooks/AuthProvider';
 import { useNavigate } from "react-router-dom";
 
 const EHR = () => {
+    const apiUrl = import.meta.env.VITE_API_URL;
     const navigate = useNavigate();
     const auth = useAuth();
     const [data, setData] = useState([]);
@@ -94,7 +95,7 @@ const EHR = () => {
                                 <Button
                                     colorScheme="red"
                                     size="sm"
-                                    onClick={() => onDelete(item.id)} 
+                                    onClick={() => onDelete(item.id)}
                                 >
                                     Delete
                                 </Button>

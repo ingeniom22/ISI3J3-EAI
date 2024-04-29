@@ -3,6 +3,7 @@ import { Checkbox, Box, Input, Button, FormControl, FormLabel } from '@chakra-ui
 import { useAuth } from '../hooks/AuthProvider';
 
 const Feedback = () => {
+    const apiUrl = import.meta.env.VITE_API_URL
     const [formData, setFormData] = useState({ title: '', content: '' });
     const auth = useAuth();
 

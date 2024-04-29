@@ -5,6 +5,7 @@ import { useAuth } from '../hooks/AuthProvider';
 import { useNavigate } from "react-router-dom";
 
 const Pneumonia = () => {
+    const apiUrl = import.meta.env.VITE_API_URL
     const navigate = useNavigate();
     const auth = useAuth();
     const [data, setData] = useState([]);
