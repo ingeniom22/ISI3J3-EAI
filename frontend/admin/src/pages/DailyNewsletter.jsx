@@ -48,7 +48,7 @@ const DailyNewsletter = () => {
     const onDelete = async (id) => {
         if (confirm('Are you sure you want to delete this record?')) {
             try {
-                const response = await fetch(`/daily-newsletter/delete/${id}`, {
+                const response = await fetch(apiUrl + `/daily-newsletter/delete/${id}`, {
                     method: 'DELETE',
                     headers: {
                         Authorization: `Bearer ${auth.token}`,
